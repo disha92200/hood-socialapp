@@ -1,0 +1,25 @@
+.cardContainer{
+    width:87%;
+    background: #fff;
+    border-radius: 10px;
+    border:2px solid #e8e8e8;
+    padding:30px 30px;
+    margin:0 auto;
+}
+.cardWrapper {
+    max-width: 100%;
+    padding-top:20px;
+    padding-bottom: 10px;
+    /* display: inline-block;
+    align-items: center;
+    justify-content: center; */
+    margin:0 auto;
+}
+.title{
+    text-align: center;
+    font-weight: 500;
+    font-size: 22px;
+    color:#344358
+
+
+}

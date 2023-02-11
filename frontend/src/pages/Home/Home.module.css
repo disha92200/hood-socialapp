@@ -1,0 +1,95 @@
+.homeContainer{
+    height:100vh;
+    background: linear-gradient(50deg,#fff 0%,#fff 47%,#6ba4e9 47%,#6ba4e9 100%);
+    /* padding:100px 100px; */
+    display: flex;
+        align-items: center;
+        justify-content: center;
+}
+
+.friendImg{
+    width:58%;
+    margin-left:150px ;
+    margin-right: 50px;
+    
+}
+.content{
+    display:flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: 120px;
+    /* margin-left:200px;
+    margin-right: 200px; */
+}
+.rightContent{
+    margin-right: 210px;
+}
+.content p{
+color: #fff;
+font-weight: bold;
+margin: 0 0;
+    
+}
+.heading{
+    font-size:90px;
+    text-shadow: 10px 10px #3180e1;
+    padding:0px;
+    
+}
+.content .subHeading{
+    font-size: 30px;
+    text-shadow: 5px 5px #3180e1;
+    margin-left: 10px;
+}
+.content button{
+    outline:none;
+    border:none;
+    border-radius:10px;
+    /* width:100px;
+    height:40px; */
+    color:#6ba4e9;
+    background:#fff ;
+    font-size: 14px;
+    /* font-weight: 500; */
+    padding:12px 40px;
+    font-weight: 10%;
+    margin:0 auto;
+    cursor: pointer;
+    box-shadow: 2px 2px #3180e1;
+}
+.content button:hover{
+    box-shadow: none;
+}
+.buttonWrapper{
+    margin-top: 20px;
+    margin-bottom: 10px;
+    margin-left: 10px;
+}
+.login{
+    cursor:pointer;
+}
+.login:hover{
+    text-shadow: 3px 3px #3180e1;
+}
+
+.content .footer{
+    margin-left: 10px;
+    font-weight: 100;
+}
+@media (max-width:960px){
+    .content{
+        display:block;
+        margin-top: 20px;
+    }
+    .homeContainer{
+        display:block;
+        background: linear-gradient(to bottom, #fff 0%, #fff 20%, #6ba4e9 20%, #6ba4e9 100%);
+    }
+    .rightContent{}
+    .friendImg{
+        margin:0 20%;
+    }
+    .heading{
+        font-size: 60px;
+    }
+}
