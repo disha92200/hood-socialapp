@@ -8,12 +8,41 @@ import Flag from "../SignUpSteps/Flag/Flag";
 const SignUp = () => {
   const [step, setStep] = useState(0);
   const [slidePerc, setSlidePerc] = useState(0);
+  const [userDetails, setUserDetails] = useState({});
   const StepComponent = (step) => {
-    if (step === 0) return <Basic></Basic>;
-    else if (step === 1) return <Picture></Picture>;
-    else if (step === 2) return <Lock></Lock>;
-    else return <Flag></Flag>;
+    if (step === 0)
+      return (
+        <Basic
+          userDetails={userDetails}
+          setUserDetails={setUserDetails}
+          onBack={onBack}
+          onNext={onNext}
+        ></Basic>
+      );
+    else if (step === 1)
+      return (
+        <Picture
+          userDetails={userDetails}
+          setUserDetails={setUserDetails}
+          onBack={onBack}
+          onNext={onNext}
+        ></Picture>
+      );
+    else if (step === 2)
+      return (
+        <Lock
+          userDetails={userDetails}
+          setUserDetails={setUserDetails}
+          onBack={onBack}
+          onNext={onNext}
+        ></Lock>
+      );
+    else if (step === 3) return <Flag userDetails={userDetails}></Flag>;
+    else return <></>;
   };
+  useEffect(() => {
+    document.title = "hood | SignUp";
+  }, []);
   useEffect(() => {
     setSlidePerc((prev) => {
       return (100 / 3) * step;
@@ -71,7 +100,7 @@ const SignUp = () => {
         </div>
       </div>
       <div className={styles.componentWrapper}>{StepComponent(step)}</div>
-      {step < 3 ? (
+      {/* {step < 3 ? (
         <div className={styles.buttonWrapper}>
           <button className={styles.backButton} onClick={onBack}>
             Back
@@ -82,7 +111,7 @@ const SignUp = () => {
         </div>
       ) : (
         ""
-      )}
+      )} */}
     </div>
   );
 };

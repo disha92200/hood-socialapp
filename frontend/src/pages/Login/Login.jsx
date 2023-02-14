@@ -1,16 +1,46 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import styles from "./Login.module.css";
 import InputComponent from "../../components/InputComponent/InputComponent";
 import { useNavigate } from "react-router-dom";
+import { login } from "../../graphql/queries";
+import { useLazyQuery } from "@apollo/client";
+import { useDispatch } from "react-redux";
+import { setAuth } from "../../store/authSlice";
 
 const Login = () => {
   const [loginDetails, setLoginDetails] = useState({
     email: "",
     password: "",
   });
+  const dispatch = useDispatch();
+  const emailPattern = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/;
+  const [userLogin, { loading, error, data }] = useLazyQuery(login);
   const navigate = useNavigate();
+  useEffect(() => {
+    document.title = "hood | Login";
+  }, []);
+  useEffect(() => {
+    if (data) {
+      dispatch(setAuth({ user: data.userLogin }));
+    }
+  }, [data]);
+
+  useEffect(() => {
+    if (error) {
+      alert(error.message);
+    }
+  }, [error]);
   const handleSignUp = () => {
     navigate("/signup");
+  };
+  const handleLogin = async () => {
+    if (!emailPattern.test(loginDetails.email)) {
+      alert("Wrong email");
+      return;
+    }
+    userLogin({
+      variables: loginDetails,
+    });
   };
   return (
     <div className={styles.container}>
@@ -50,7 +80,7 @@ const Login = () => {
           </div>
           <p>Forgot Password?</p>
         </div>
-        <button>Login</button>
+        <button onClick={handleLogin}>Login</button>
         <div className={styles.footer} onClick={handleSignUp}>
           Don't have an account? Sign Up
         </div>

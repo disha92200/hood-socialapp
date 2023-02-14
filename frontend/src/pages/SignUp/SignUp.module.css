@@ -37,7 +37,7 @@ body{
     margin:0 auto;
     padding-bottom: 0px;
 }
-.buttonWrapper{
+/* .buttonWrapper{
     display: flex;
     align-items: center;
     justify-content: flex-end;
@@ -65,4 +65,4 @@ body{
     color: #fff;
     border:none;
     box-shadow: 0px 3px 4px 0px rgba(0,0,0,0.2);
-}
+} */

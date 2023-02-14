@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import styles from "./Home.module.css";
 import { useNavigate } from "react-router-dom";
 
@@ -10,6 +10,9 @@ const Home = () => {
   const handlelogin = () => {
     navigate("/login");
   };
+  useEffect(() => {
+    document.title = "hood";
+  }, []);
   return (
     <div className={styles.homeContainer}>
       <div className={styles.content}>
